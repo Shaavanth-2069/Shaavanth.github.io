@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Programs - Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .prog-ol-list {
+            list-style-position: inside;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .prog-ol-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .prog-ol-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .prog-ol-link {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .link-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .link-title:hover {
+            text-decoration: underline;
+        }
+        .link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>HTML Programs</h1>
+        <p>Complete List of 15 HTML Practical Programs</p>
+        <div class="student-meta">
+            <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
+            <span>🆔 <strong>Register Number:</strong> 250200412</span>
+            <span>🏫 <strong>Class / Section:</strong> 2nd year / 5th section</span>
+            <span>📚 <strong>Subject:</strong> Web Technology and Internet Programming</span>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to Programs</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search HTML programs by title or topic..." onkeyup="filterProgs()">
+        
+        <h1 style="color:var(--primary); font-size:1.8rem; margin-top:1rem;">HTML Programs (15 Programs)</h1>
+        
+        <ol class="prog-ol-list" id="progList">
+            
+        <li class="prog-ol-item">
+            <a href="basic-webpage.html" class="prog-ol-link">
+                <span class="link-title">#001 - Basic HTML Webpage</span>
+                <span class="link-desc">Headings, paragraphs, line breaks, and text formatting</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="lists.html" class="prog-ol-link">
+                <span class="link-title">#002 - Ordered, Unordered & Description Lists</span>
+                <span class="link-desc">Demonstration of ordered, unordered, and description lists</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="tables.html" class="prog-ol-link">
+                <span class="link-title">#003 - Tables with Rows, Columns & Merged Cells</span>
+                <span class="link-desc">HTML table demonstrating colspan, rowspan, and borders</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="images-hyperlinks.html" class="prog-ol-link">
+                <span class="link-title">#004 - Images & Hyperlinks</span>
+                <span class="link-desc">Embedding images with captions and external/internal hyperlinks</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="student-registration-form.html" class="prog-ol-link">
+                <span class="link-title">#005 - Student Registration Form</span>
+                <span class="link-desc">Complete student registration form using HTML form elements</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="audio-video.html" class="prog-ol-link">
+                <span class="link-title">#006 - Audio & Video Elements</span>
+                <span class="link-desc">HTML5 multimedia audio and video players with custom controls</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="iframes.html" class="prog-ol-link">
+                <span class="link-title">#007 - Frames & Iframes</span>
+                <span class="link-desc">Embedding external web content using inline frames</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="semantic-elements.html" class="prog-ol-link">
+                <span class="link-title">#008 - Semantic Structure Elements</span>
+                <span class="link-desc">Demonstration of header, nav, section, article, and footer tags</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="html5-input-types.html" class="prog-ol-link">
+                <span class="link-title">#009 - HTML5 Input Types</span>
+                <span class="link-desc">Demonstrating email, date, number, color, range, and password inputs</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="college-timetable.html" class="prog-ol-link">
+                <span class="link-title">#010 - College Lecture Timetable</span>
+                <span class="link-desc">Weekly lecture timetable using HTML table layout</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="internal-external-css.html" class="prog-ol-link">
+                <span class="link-title">#011 - Internal & External CSS Styling</span>
+                <span class="link-desc">Demonstration of inline, internal, and external CSS styles</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-selectors-styling.html" class="prog-ol-link">
+                <span class="link-title">#012 - CSS Selectors, Colors, Fonts & Borders</span>
+                <span class="link-desc">Demonstration of class, ID, element selectors, margins, and padding</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-media-queries.html" class="prog-ol-link">
+                <span class="link-title">#013 - Responsive Webpage using Media Queries</span>
+                <span class="link-desc">Webpage layout adapting dynamically to mobile, tablet, and desktop screens</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="bootstrap-components.html" class="prog-ol-link">
+                <span class="link-title">#014 - Bootstrap Components Integration</span>
+                <span class="link-desc">Integrating Bootstrap buttons, hero card, and badges via CDN</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="personal-portfolio.html" class="prog-ol-link">
+                <span class="link-title">#015 - Simple Personal Portfolio Webpage</span>
+                <span class="link-desc">Personal portfolio webpage layout built with HTML and CSS</span>
+            </a>
+        </li>
+        </ol>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to Programs</a>
+        </div>
+        <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
+    </footer>
+
+    <script>
+        function filterProgs() {
+            const q = document.getElementById('searchBox').value.toLowerCase();
+            const items = document.querySelectorAll('.prog-ol-item');
+            items.forEach(item => {
+                const txt = item.innerText.toLowerCase();
+                item.style.display = txt.includes(q) ? 'list-item' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
