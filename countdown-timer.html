@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#109 - Countdown Timer Mini Project - Web Tech Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style></style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>#109 - Countdown Timer Mini Project</h1>
+        <p>Create a countdown timer</p>
+        <div class="student-meta">
+            <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
+            <span>🆔 <strong>Register Number:</strong> 250200412</span>
+            <span>🏫 <strong>Class / Section:</strong> 2nd year / 5th section</span>
+            <span>📚 <strong>Subject:</strong> Web Technology and Internet Programming</span>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to JAVASCRIPT Programs</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="exp-card">
+            <div class="exp-header">
+                <h2 class="exp-title">#109 - Countdown Timer Mini Project</h2>
+                <p class="exp-desc">Create a countdown timer</p>
+            </div>
+            <div class="demo-box">
+                <div style='text-align:center; padding:1.5rem; background:#ffffff; border-radius:10px;'><input id='cdInput' type='number' class='form-control' value='10' style='max-width:150px; margin:auto; text-align:center; font-size:1.2rem; margin-bottom:1rem;' placeholder='Seconds'><div id='cdDisplay' style='font-size:2.5rem; font-weight:bold; color:#ef4444; margin-bottom:1rem;'>10</div><button class='btn-action' onclick='startCD()'>Start Countdown</button></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to JAVASCRIPT Programs</a>
+        </div>
+        <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
+    </footer>
+
+    <script>let cdT=0, cdInt=null; function startCD(){ clearInterval(cdInt); cdT=Number(document.getElementById('cdInput').value); document.getElementById('cdDisplay').innerText=cdT; cdInt=setInterval(()=>{ cdT--; if(cdT<=0){ clearInterval(cdInt); document.getElementById('cdDisplay').innerText='⏰ Time Up!'; }else{ document.getElementById('cdDisplay').innerText=cdT; } },1000); }</script>
+</body>
+</html>

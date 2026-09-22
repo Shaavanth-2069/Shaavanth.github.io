@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#106 - Digital Calculator Mini Project - Web Tech Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style></style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>#106 - Digital Calculator Mini Project</h1>
+        <p>Create a digital calculator</p>
+        <div class="student-meta">
+            <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
+            <span>🆔 <strong>Register Number:</strong> 250200412</span>
+            <span>🏫 <strong>Class / Section:</strong> 2nd year / 5th section</span>
+            <span>📚 <strong>Subject:</strong> Web Technology and Internet Programming</span>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to JAVASCRIPT Programs</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="exp-card">
+            <div class="exp-header">
+                <h2 class="exp-title">#106 - Digital Calculator Mini Project</h2>
+                <p class="exp-desc">Create a digital calculator</p>
+            </div>
+            <div class="demo-box">
+                <div style='max-width:280px; margin:auto; background:#1e293b; padding:1.2rem; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2);'><input id='calcDisplay' readonly style='width:100%; height:45px; background:#0f172a; color:#10b981; text-align:right; font-size:1.4rem; padding:0.5rem; border:none; border-radius:6px; margin-bottom:1rem;' value='0'><div style='display:grid; grid-template-columns:repeat(4, 1fr); gap:0.5rem;'><button class='btn-action' onclick='cClear()'>C</button><button class='btn-action' onclick='cPress("/")'>/</button><button class='btn-action' onclick='cPress("*")'>*</button><button class='btn-action' onclick='cPress("-")'>-</button><button class='btn-secondary' onclick='cPress("7")'>7</button><button class='btn-secondary' onclick='cPress("8")'>8</button><button class='btn-secondary' onclick='cPress("9")'>9</button><button class='btn-action' onclick='cPress("+")'>+</button><button class='btn-secondary' onclick='cPress("4")'>4</button><button class='btn-secondary' onclick='cPress("5")'>5</button><button class='btn-secondary' onclick='cPress("6")'>6</button><button class='btn-action' onclick='cEval()' style='grid-row:span 2; background:#4f46e5;'>=</button><button class='btn-secondary' onclick='cPress("1")'>1</button><button class='btn-secondary' onclick='cPress("2")'>2</button><button class='btn-secondary' onclick='cPress("3")'>3</button><button class='btn-secondary' onclick='cPress("0")' style='grid-column:span 2;'>0</button><button class='btn-secondary' onclick='cPress(".")'>.</button></div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to JAVASCRIPT Programs</a>
+        </div>
+        <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
+    </footer>
+
+    <script>let cVal=''; function cPress(v){ cVal+=v; document.getElementById('calcDisplay').value=cVal; } function cClear(){ cVal=''; document.getElementById('calcDisplay').value='0'; } function cEval(){ try{ cVal=eval(cVal).toString(); document.getElementById('calcDisplay').value=cVal; }catch(e){ document.getElementById('calcDisplay').value='Error'; cVal=''; } }</script>
+</body>
+</html>

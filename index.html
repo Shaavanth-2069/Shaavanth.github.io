@@ -3,13 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML CSS JAVASCRIPT PRACTICAL PROGRAMS</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>JavaScript Programs - Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            padding: 0.55rem 1.1rem;
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--primary-gradient);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        .category-block {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .category-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+        }
+        .category-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+        .prog-ol-list {
+            list-style-position: inside;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.2rem;
+        }
+        .prog-ol-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .prog-ol-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .prog-ol-link {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .link-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .link-title:hover {
+            text-decoration: underline;
+        }
+        .link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 <body>
     <header class="app-header">
-        <h1>HTML CSS JAVASCRIPT</h1>
-        <p>PRACTICAL PROGRAMS ASSIGNMENT PORTAL</p>
+        <h1>JavaScript Programs</h1>
+        <p>Categorized Collection of 120 JavaScript Practical Experiments</p>
         <div class="student-meta">
             <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
             <span>🆔 <strong>Register Number:</strong> 250200412</span>
@@ -18,54 +118,862 @@
         </div>
     </header>
 
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to Programs</a>
+        </div>
+    </nav>
+
     <main class="main-container">
-        <section style="text-align: center; margin-bottom: 2rem;">
-            <div class="count-badge" style="font-size: 1rem; padding: 0.5rem 1.2rem;">
-                🎉 Total Completed Programs: 212 Practical Experiments
-            </div>
-            <p style="color: var(--text-muted); max-width: 680px; margin: 0.5rem auto;">
-                Welcome to the complete practical assignment repository. Explore interactive experiments across HTML fundamentals (15), CSS styling & layouts (75), and JavaScript programming up to Mini Projects (122).
-            </p>
-        </section>
+        <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search JavaScript programs by title or keyword..." onkeyup="filterProgs()">
+        
+        <!-- Category Filter Tabs -->
+        <div class="category-tabs">
+            <button class='tab-btn active' onclick='filterTab("all")'>All Categories (122)</button><button class='tab-btn' onclick='filterTab("mini-projects")'>🚀 Mini Projects (17)</button><button class='tab-btn' onclick='filterTab("dom-manipulation")'>🛠️ DOM Manipulation (15)</button><button class='tab-btn' onclick='filterTab("events")'>⚡ JavaScript Events (8)</button><button class='tab-btn' onclick='filterTab("forms-validation")'>📝 Forms & Validation (7)</button><button class='tab-btn' onclick='filterTab("browser-objects")'>🌐 Browser Objects & Features (4)</button><button class='tab-btn' onclick='filterTab("web-storage")'>💾 Web Storage (4)</button><button class='tab-btn' onclick='filterTab("general-js")'>📌 General & Algorithmic JavaScript (65)</button>
+        </div>
 
-        <section class="dash-grid">
-            <!-- HTML Programs Card -->
-            <div class="dash-card">
-                <div class="dash-icon">📄</div>
-                <h2 class="dash-title">HTML Programs</h2>
-                <div class="count-badge">15 Programs</div>
-                <p class="dash-desc">
-                    Complete all programs under the HTML section including headings, lists, tables with merged cells, forms, audio/video players, semantic tags, timetable, internal/external CSS, Bootstrap, and portfolio.
-                </p>
-                <a href="html/index.html" class="btn-primary">View HTML Programs</a>
-            </div>
-
-            <!-- CSS Programs Card -->
-            <div class="dash-card">
-                <div class="dash-icon">🎨</div>
-                <h2 class="dash-title">CSS Programs</h2>
-                <div class="count-badge">75 Programs</div>
-                <p class="dash-desc">
-                    Complete all programs under the CSS section including inline/internal/external styling, selectors, box model, Flexbox, CSS Grid layouts, animations, transitions, custom variables, filters, and responsive pages.
-                </p>
-                <a href="css/index.html" class="btn-primary">View CSS Programs</a>
-            </div>
-
-            <!-- JS Programs Card -->
-            <div class="dash-card">
-                <div class="dash-icon">⚡</div>
-                <h2 class="dash-title">JS Programs</h2>
-                <div class="count-badge">122 Programs</div>
-                <p class="dash-desc">
-                    Complete all programs under General JS, DOM & Event-Based Experiments, Advanced JS, DOM Manipulation, Events, Forms & Validation, Browser & Storage, and Mini Projects.
-                </p>
-                <a href="javascript/index.html" class="btn-primary">View JavaScript Programs</a>
-            </div>
-        </section>
+        <!-- Categorized Blocks -->
+        <div id="blocksContainer">
+            
+    <div class="category-block" id="block-mini-projects">
+        <div class="category-header">
+            <h2 class="category-title">🚀 Mini Projects</h2>
+            <span class="category-badge">17 Programs</span>
+        </div>
+        <p class="category-desc">Complete interactive web applications built with HTML, CSS, and JavaScript</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="digital-calculator.html" class="prog-ol-link">
+                <span class="link-title">Digital Calculator Mini Project</span>
+                <span class="link-desc">Complete GUI digital calculator with buttons and screen display</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="digital-clock.html" class="prog-ol-link">
+                <span class="link-title">Digital Clock Mini Project</span>
+                <span class="link-desc">Live digital clock with seconds, date, and 12h/24h toggle</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="stopwatch.html" class="prog-ol-link">
+                <span class="link-title">Stopwatch Mini Project</span>
+                <span class="link-desc">Precise stopwatch application with start, pause, lap, and reset</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="countdown-timer.html" class="prog-ol-link">
+                <span class="link-title">Countdown Timer Mini Project</span>
+                <span class="link-desc">Customizable timer with start and reset buttons</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="todo-list.html" class="prog-ol-link">
+                <span class="link-title">To-Do List Application</span>
+                <span class="link-desc">Interactive task list with add, check complete, and delete actions</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="weather-app.html" class="prog-ol-link">
+                <span class="link-title">Weather Application using API</span>
+                <span class="link-desc">Fetch live weather forecast for cities using Open-Meteo API</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="quiz-app.html" class="prog-ol-link">
+                <span class="link-title">Quiz Application Mini Project</span>
+                <span class="link-desc">Interactive multiple choice quiz with score counter and timer</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="number-guessing-game.html" class="prog-ol-link">
+                <span class="link-title">Number Guessing Game</span>
+                <span class="link-desc">Random number guessing game (1-100) with attempts & hints</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="tic-tac-toe.html" class="prog-ol-link">
+                <span class="link-title">Tic-Tac-Toe Game Mini Project</span>
+                <span class="link-desc">Two-player Tic-Tac-Toe game with win detection</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="expense-tracker.html" class="prog-ol-link">
+                <span class="link-title">Simple Expense Tracker</span>
+                <span class="link-desc">Track income, expenses, categories, total balance</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="student-marks-calculator.html" class="prog-ol-link">
+                <span class="link-title">Student Marks/Grade Calculator</span>
+                <span class="link-desc">Calculate subject marks, total, percentage, GPA, grade</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="simple-shopping-cart.html" class="prog-ol-link">
+                <span class="link-title">Simple Shopping Cart Mini Project</span>
+                <span class="link-desc">Product catalog with add to cart, item quantities, subtotal</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="notes-app.html" class="prog-ol-link">
+                <span class="link-title">Notes Application using localStorage</span>
+                <span class="link-desc">Notes manager with local storage persistence</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="random-password-generator.html" class="prog-ol-link">
+                <span class="link-title">Random Password Generator</span>
+                <span class="link-desc">Generate secure random passwords with options & copy button</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="bmi-calculator.html" class="prog-ol-link">
+                <span class="link-title">BMI Calculator Mini Project</span>
+                <span class="link-desc">Calculate Body Mass Index (BMI) with health status bar</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="currency-converter.html" class="prog-ol-link">
+                <span class="link-title">Currency Converter using API</span>
+                <span class="link-desc">Live currency conversion rates calculator</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="mini-projects">
+            <a href="interactive-portfolio.html" class="prog-ol-link">
+                <span class="link-title">Complete Interactive Portfolio Website</span>
+                <span class="link-desc">Portfolio website with HTML, CSS, JavaScript, and project filter</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-dom-manipulation">
+        <div class="category-header">
+            <h2 class="category-title">🛠️ DOM Manipulation</h2>
+            <span class="category-badge">15 Programs</span>
+        </div>
+        <p class="category-desc">Dynamic element creation, removal, styling, querying, and dynamic table operations</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-066-dom-add-elements.html" class="prog-ol-link">
+                <span class="link-title">Add New Elements Dynamically</span>
+                <span class="link-desc">Create and append new DOM elements dynamically using createElement</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-067-dom-remove-elements.html" class="prog-ol-link">
+                <span class="link-title">Remove HTML Elements Dynamically</span>
+                <span class="link-desc">Dynamically remove elements from the DOM using remove()</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-068-dom-change-css-styles.html" class="prog-ol-link">
+                <span class="link-title">Change CSS Styles using JavaScript</span>
+                <span class="link-desc">Modify style properties dynamically using element.style</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-069-dom-change-multiple-elements.html" class="prog-ol-link">
+                <span class="link-title">Change Multiple Elements Simultaneously</span>
+                <span class="link-desc">Batch update multiple elements using querySelectorAll</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-070-dom-getelementbyid-classname.html" class="prog-ol-link">
+                <span class="link-title">getElementById vs getElementsByClassName</span>
+                <span class="link-desc">Demonstrate DOM element selection methods</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-071-dom-queryselector-all.html" class="prog-ol-link">
+                <span class="link-title">querySelector vs querySelectorAll</span>
+                <span class="link-desc">Modern CSS selector DOM querying demonstration</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-072-dom-toggle-css-classes.html" class="prog-ol-link">
+                <span class="link-title">Create and Remove CSS Classes Dynamically</span>
+                <span class="link-desc">Manipulate classList add, remove, and toggle</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-073-dom-dynamic-table.html" class="prog-ol-link">
+                <span class="link-title">Dynamic Table using JavaScript</span>
+                <span class="link-desc">Generate dynamic HTML table from JavaScript JSON data</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-074-dom-add-delete-table-rows.html" class="prog-ol-link">
+                <span class="link-title">Add and Delete Rows from a Table</span>
+                <span class="link-desc">Insert and remove table rows dynamically</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-075-dom-table-search-filter.html" class="prog-ol-link">
+                <span class="link-title">Search/Filter Table Records</span>
+                <span class="link-desc">Realtime live search filter on table rows</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-076-dom-character-counter.html" class="prog-ol-link">
+                <span class="link-title">Live Character Counter for Textarea</span>
+                <span class="link-desc">Textarea character counter with limit warning</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-077-dom-password-show-hide.html" class="prog-ol-link">
+                <span class="link-title">Password Show/Hide Feature</span>
+                <span class="link-desc">Toggle password visibility button</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-078-dom-dynamic-dropdown.html" class="prog-ol-link">
+                <span class="link-title">Dynamic Dropdown List</span>
+                <span class="link-desc">Populate select dropdown options dynamically from array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-079-dom-dependent-dropdown.html" class="prog-ol-link">
+                <span class="link-title">Dependent Dropdown (Country->State->City)</span>
+                <span class="link-desc">Cascading select dropdowns</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="dom-manipulation">
+            <a href="js-080-dom-image-slideshow.html" class="prog-ol-link">
+                <span class="link-title">Image Slideshow/Carousel using JavaScript</span>
+                <span class="link-desc">Interactive image slideshow with next/prev buttons</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-events">
+        <div class="category-header">
+            <h2 class="category-title">⚡ JavaScript Events</h2>
+            <span class="category-badge">8 Programs</span>
+        </div>
+        <p class="category-desc">Mouse, keyboard, form events, double-click, event bubbling/capturing, and drag-and-drop</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-081-events-mouse.html" class="prog-ol-link">
+                <span class="link-title">Mouse Events using JavaScript</span>
+                <span class="link-desc">Demonstrate click, dblclick, mouseover, mouseout, mousemove</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-082-events-keyboard.html" class="prog-ol-link">
+                <span class="link-title">Keyboard Events using JavaScript</span>
+                <span class="link-desc">Demonstrate keydown, keyup, and keycode logger</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-083-events-form.html" class="prog-ol-link">
+                <span class="link-title">Form Events (submit, change, focus, blur)</span>
+                <span class="link-desc">Demonstrate form input event handling</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-084-events-double-click.html" class="prog-ol-link">
+                <span class="link-title">Respond to Double-Click Events</span>
+                <span class="link-desc">Create a webpage that responds to dblclick events</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-085-events-bubbling-capturing.html" class="prog-ol-link">
+                <span class="link-title">Event Bubbling and Event Capturing</span>
+                <span class="link-desc">Event propagation flow visual demonstration</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-086-events-delegation.html" class="prog-ol-link">
+                <span class="link-title">Event Delegation</span>
+                <span class="link-desc">Demonstrate handling events on dynamic child elements via parent</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-087-events-keyboard-game.html" class="prog-ol-link">
+                <span class="link-title">Keyboard-Controlled Webpage/Game</span>
+                <span class="link-desc">Move character box around screen with Arrow keys</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="events">
+            <a href="js-088-events-drag-and-drop.html" class="prog-ol-link">
+                <span class="link-title">Drag-and-Drop Application</span>
+                <span class="link-desc">Drag and drop items between containers using HTML5 Drag API</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-forms-validation">
+        <div class="category-header">
+            <h2 class="category-title">📝 Forms & Validation</h2>
+            <span class="category-badge">7 Programs</span>
+        </div>
+        <p class="category-desc">Client-side validation, password strength meters, confirmation checks, and error rendering</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-089-form-student-registration.html" class="prog-ol-link">
+                <span class="link-title">Student Registration Form Validation</span>
+                <span class="link-desc">Create a student registration form with JavaScript validation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-090-form-login-validation.html" class="prog-ol-link">
+                <span class="link-title">Login Form Username & Password Validation</span>
+                <span class="link-desc">Create a login form with username and password validation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-091-form-password-strength.html" class="prog-ol-link">
+                <span class="link-title">Password Strength Checker</span>
+                <span class="link-desc">Realtime password complexity score meter</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-092-form-signup-confirmation.html" class="prog-ol-link">
+                <span class="link-title">Signup Form with Password Confirmation</span>
+                <span class="link-desc">Confirm password match validation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-093-form-feedback-validation.html" class="prog-ol-link">
+                <span class="link-title">Feedback Form with Validation</span>
+                <span class="link-desc">Feedback form with star rating and validation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-094-form-college-admission.html" class="prog-ol-link">
+                <span class="link-title">College Admission Form Validation</span>
+                <span class="link-desc">Validate admission form input fields</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="forms-validation">
+            <a href="js-095-form-dynamic-error-messages.html" class="prog-ol-link">
+                <span class="link-title">Display Dynamic Error Messages</span>
+                <span class="link-desc">Display validation error messages dynamically without reloading</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-browser-objects">
+        <div class="category-header">
+            <h2 class="category-title">🌐 Browser Objects & Features</h2>
+            <span class="category-badge">4 Programs</span>
+        </div>
+        <p class="category-desc">Window, Navigator, Location, and History browser API objects</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="browser-objects">
+            <a href="js-096-browser-window-object.html" class="prog-ol-link">
+                <span class="link-title">Window Object</span>
+                <span class="link-desc">Demonstrate alert, confirm, prompt, innerWidth, and timers</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="browser-objects">
+            <a href="js-097-browser-navigator-object.html" class="prog-ol-link">
+                <span class="link-title">Navigator Object</span>
+                <span class="link-desc">Demonstrate userAgent, platform, online status, language</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="browser-objects">
+            <a href="js-098-browser-location-object.html" class="prog-ol-link">
+                <span class="link-title">Location Object</span>
+                <span class="link-desc">Demonstrate href, pathname, reload, assign methods</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="browser-objects">
+            <a href="js-099-browser-history-object.html" class="prog-ol-link">
+                <span class="link-title">History Object</span>
+                <span class="link-desc">Demonstrate history back, forward, go, length properties</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-web-storage">
+        <div class="category-header">
+            <h2 class="category-title">💾 Web Storage</h2>
+            <span class="category-badge">4 Programs</span>
+        </div>
+        <p class="category-desc">Data persistence using localStorage and sessionStorage APIs</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="web-storage">
+            <a href="js-100-storage-localstorage.html" class="prog-ol-link">
+                <span class="link-title">Program using localStorage</span>
+                <span class="link-desc">Store, retrieve, and clear items in localStorage</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="web-storage">
+            <a href="js-101-storage-sessionstorage.html" class="prog-ol-link">
+                <span class="link-title">Program using sessionStorage</span>
+                <span class="link-desc">Session-based temporary data storage manager</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="web-storage">
+            <a href="js-102-storage-shopping-cart.html" class="prog-ol-link">
+                <span class="link-title">Shopping Cart using localStorage</span>
+                <span class="link-desc">Persistent e-commerce cart using localStorage</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="web-storage">
+            <a href="js-103-storage-theme-switcher.html" class="prog-ol-link">
+                <span class="link-title">Theme Switcher using localStorage</span>
+                <span class="link-desc">Persistent Dark/Light mode theme switcher</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+    <div class="category-block" id="block-general-js">
+        <div class="category-header">
+            <h2 class="category-title">📌 General & Algorithmic JavaScript</h2>
+            <span class="category-badge">65 Programs</span>
+        </div>
+        <p class="category-desc">Basic programs, control structures, ES6 features, array methods, and algorithmic logic</p>
+        <ol class="prog-ol-list">
+            
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-001-hello-world.html" class="prog-ol-link">
+                <span class="link-title">Display Hello World</span>
+                <span class="link-desc">Write a JavaScript program to display 'Hello World'</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-002-arithmetic-operations.html" class="prog-ol-link">
+                <span class="link-title">Perform Arithmetic Operations</span>
+                <span class="link-desc">Write a JavaScript program to perform arithmetic operations</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-003-largest-of-three.html" class="prog-ol-link">
+                <span class="link-title">Largest of Three Numbers</span>
+                <span class="link-desc">Write a program to find the largest of three numbers</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-004-even-or-odd.html" class="prog-ol-link">
+                <span class="link-title">Even or Odd Checker</span>
+                <span class="link-desc">Write a program to check whether a number is even or odd</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-005-positive-negative-zero.html" class="prog-ol-link">
+                <span class="link-title">Positive, Negative, or Zero</span>
+                <span class="link-desc">Write a program to check whether a number is positive, negative, or zero</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-006-factorial.html" class="prog-ol-link">
+                <span class="link-title">Factorial of a Number</span>
+                <span class="link-desc">Write a program to find the factorial of a number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-007-fibonacci-series.html" class="prog-ol-link">
+                <span class="link-title">Fibonacci Series Generator</span>
+                <span class="link-desc">Write a program to generate the Fibonacci series</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-008-prime-number.html" class="prog-ol-link">
+                <span class="link-title">Prime Number Checker</span>
+                <span class="link-desc">Write a program to check whether a number is prime</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-009-palindrome-number.html" class="prog-ol-link">
+                <span class="link-title">Palindrome Number Checker</span>
+                <span class="link-desc">Write a program to check whether a number is a palindrome</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-010-reverse-number.html" class="prog-ol-link">
+                <span class="link-title">Reverse a Number</span>
+                <span class="link-desc">Write a program to reverse a number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-011-sum-of-digits.html" class="prog-ol-link">
+                <span class="link-title">Sum of Digits</span>
+                <span class="link-desc">Write a program to find the sum of digits of a number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-012-array-min-max.html" class="prog-ol-link">
+                <span class="link-title">Largest and Smallest Array Element</span>
+                <span class="link-desc">Write a program to find the largest and smallest element in an array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-013-sort-array.html" class="prog-ol-link">
+                <span class="link-title">Sort an Array</span>
+                <span class="link-desc">Write a program to sort an array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-014-array-sum-average.html" class="prog-ol-link">
+                <span class="link-title">Sum and Average of Array Elements</span>
+                <span class="link-desc">Write a program to find the sum and average of array elements</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-015-functions-demo.html" class="prog-ol-link">
+                <span class="link-title">JavaScript Functions</span>
+                <span class="link-desc">Write a program to demonstrate JavaScript functions</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-016-arrow-functions.html" class="prog-ol-link">
+                <span class="link-title">Arrow Functions</span>
+                <span class="link-desc">Write a program using arrow functions</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-017-string-methods.html" class="prog-ol-link">
+                <span class="link-title">Strings and String Methods</span>
+                <span class="link-desc">Write a program demonstrating strings and string methods</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-018-array-methods.html" class="prog-ol-link">
+                <span class="link-title">Arrays and Array Methods</span>
+                <span class="link-desc">Write a program demonstrating arrays and array methods</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-019-objects-demo.html" class="prog-ol-link">
+                <span class="link-title">Objects in JavaScript</span>
+                <span class="link-desc">Write a program demonstrating objects in JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-020-date-math-objects.html" class="prog-ol-link">
+                <span class="link-title">Date and Math Objects</span>
+                <span class="link-desc">Write a program demonstrating Date and Math objects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-021-change-text-js.html" class="prog-ol-link">
+                <span class="link-title">Change Text using JavaScript</span>
+                <span class="link-desc">Create a webpage that changes text using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-022-change-bg-color-js.html" class="prog-ol-link">
+                <span class="link-title">Change Background Color using JavaScript</span>
+                <span class="link-desc">Change the background color of a webpage using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-023-button-click-event.html" class="prog-ol-link">
+                <span class="link-title">Button Click Event</span>
+                <span class="link-desc">Create a button click event using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-024-show-hide-element.html" class="prog-ol-link">
+                <span class="link-title">Show/Hide HTML Element</span>
+                <span class="link-desc">Create a program to show/hide an HTML element</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-025-change-image-js.html" class="prog-ol-link">
+                <span class="link-title">Change Image on Button Click</span>
+                <span class="link-desc">Create a program to change an image when a button is clicked</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-026-digital-clock-dom.html" class="prog-ol-link">
+                <span class="link-title">Digital Clock (DOM)</span>
+                <span class="link-desc">Create a digital clock using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-027-simple-calculator-dom.html" class="prog-ol-link">
+                <span class="link-title">Simple Calculator (DOM)</span>
+                <span class="link-desc">Create a simple calculator using HTML, CSS, and JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-028-number-guessing-dom.html" class="prog-ol-link">
+                <span class="link-title">Number Guessing Game (DOM)</span>
+                <span class="link-desc">Create a number guessing game</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-029-form-validation-basic.html" class="prog-ol-link">
+                <span class="link-title">Form Validation Program</span>
+                <span class="link-desc">Create a form validation program</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-030-validate-user-fields.html" class="prog-ol-link">
+                <span class="link-title">Validate Name, Email, Phone & Password</span>
+                <span class="link-desc">Validate name, email, phone number, and password using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-031-todo-list-dom.html" class="prog-ol-link">
+                <span class="link-title">To-Do List (DOM)</span>
+                <span class="link-desc">Create a to-do list using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-032-quiz-app-dom.html" class="prog-ol-link">
+                <span class="link-title">Simple Quiz Application (DOM)</span>
+                <span class="link-desc">Create a simple quiz application</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-033-counter-app.html" class="prog-ol-link">
+                <span class="link-title">Counter Application</span>
+                <span class="link-desc">Create a counter application with increment and decrement buttons</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-034-stopwatch-dom.html" class="prog-ol-link">
+                <span class="link-title">Stopwatch (DOM)</span>
+                <span class="link-desc">Create a stopwatch using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-035-countdown-timer-dom.html" class="prog-ol-link">
+                <span class="link-title">Countdown Timer (DOM)</span>
+                <span class="link-desc">Create a countdown timer using JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-036-es6-features.html" class="prog-ol-link">
+                <span class="link-title">ES6 let, const, template literals, destructuring</span>
+                <span class="link-desc">Demonstrate ES6 let, const, template literals, and destructuring</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-037-spread-rest-operators.html" class="prog-ol-link">
+                <span class="link-title">Spread and Rest Operators</span>
+                <span class="link-desc">Demonstrate spread and rest operators</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-038-classes-objects.html" class="prog-ol-link">
+                <span class="link-title">Classes and Objects</span>
+                <span class="link-desc">Demonstrate classes and objects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-039-class-inheritance.html" class="prog-ol-link">
+                <span class="link-title">Inheritance in JavaScript</span>
+                <span class="link-desc">Demonstrate inheritance in JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-040-callbacks-promises-async.html" class="prog-ol-link">
+                <span class="link-title">Callbacks, Promises, and Async/Await</span>
+                <span class="link-desc">Demonstrate callbacks, promises, and async/await</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-041-fetch-api.html" class="prog-ol-link">
+                <span class="link-title">Fetch Data using Fetch API</span>
+                <span class="link-desc">Fetch data from an API using Fetch API</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-042-display-api-data.html" class="prog-ol-link">
+                <span class="link-title">Display API Data Dynamically</span>
+                <span class="link-desc">Display API data dynamically on a webpage</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-043-localstorage-demo.html" class="prog-ol-link">
+                <span class="link-title">Store and Retrieve Data in LocalStorage</span>
+                <span class="link-desc">Store and retrieve data using localStorage</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-044-responsive-login-validation.html" class="prog-ol-link">
+                <span class="link-title">Responsive Login Form with Validation</span>
+                <span class="link-desc">Create a responsive login form with JavaScript validation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-045-complete-interactive-webpage.html" class="prog-ol-link">
+                <span class="link-title">Complete Interactive Webpage</span>
+                <span class="link-desc">Create a complete interactive webpage using HTML, CSS, and JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-046-swap-two-numbers.html" class="prog-ol-link">
+                <span class="link-title">Swap Two Numbers</span>
+                <span class="link-desc">Write a JavaScript program to swap two numbers</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-047-gcd-two-numbers.html" class="prog-ol-link">
+                <span class="link-title">GCD of Two Numbers</span>
+                <span class="link-desc">Write a program to find the greatest common divisor (GCD) of two numbers</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-048-lcm-two-numbers.html" class="prog-ol-link">
+                <span class="link-title">LCM of Two Numbers</span>
+                <span class="link-desc">Write a program to find the least common multiple (LCM) of two numbers</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-049-armstrong-number.html" class="prog-ol-link">
+                <span class="link-title">Armstrong Number Checker</span>
+                <span class="link-desc">Write a program to check whether a number is an Armstrong number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-050-perfect-number.html" class="prog-ol-link">
+                <span class="link-title">Perfect Number Checker</span>
+                <span class="link-desc">Write a program to check whether a number is a perfect number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-051-multiplication-table.html" class="prog-ol-link">
+                <span class="link-title">Multiplication Table Generator</span>
+                <span class="link-desc">Write a program to generate the multiplication table of a given number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-052-power-of-number.html" class="prog-ol-link">
+                <span class="link-title">Power of a Number</span>
+                <span class="link-desc">Write a program to calculate the power of a number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-053-count-digits.html" class="prog-ol-link">
+                <span class="link-title">Count Digits in a Number</span>
+                <span class="link-desc">Write a program to count the number of digits in a number</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-054-second-largest-array.html" class="prog-ol-link">
+                <span class="link-title">Second-Largest Element in Array</span>
+                <span class="link-desc">Write a program to find the second-largest element in an array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-055-remove-array-duplicates.html" class="prog-ol-link">
+                <span class="link-title">Remove Duplicate Elements from Array</span>
+                <span class="link-desc">Write a program to remove duplicate elements from an array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-056-merge-two-arrays.html" class="prog-ol-link">
+                <span class="link-title">Merge Two Arrays</span>
+                <span class="link-desc">Write a program to merge two arrays</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-057-array-element-frequency.html" class="prog-ol-link">
+                <span class="link-title">Frequency of Array Elements</span>
+                <span class="link-desc">Write a program to find the frequency of each element in an array</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-058-common-elements-arrays.html" class="prog-ol-link">
+                <span class="link-title">Common Elements in Two Arrays</span>
+                <span class="link-desc">Write a program to find common elements in two arrays</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-059-reverse-string.html" class="prog-ol-link">
+                <span class="link-title">Reverse a String</span>
+                <span class="link-desc">Write a program to reverse a string</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-060-palindrome-string.html" class="prog-ol-link">
+                <span class="link-title">Palindrome String Checker</span>
+                <span class="link-desc">Write a program to check whether a string is a palindrome</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-061-count-vowels-consonants.html" class="prog-ol-link">
+                <span class="link-title">Count Vowels and Consonants</span>
+                <span class="link-desc">Write a program to count vowels and consonants in a string</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-062-count-words-string.html" class="prog-ol-link">
+                <span class="link-title">Count Number of Words in a String</span>
+                <span class="link-desc">Write a program to count the number of words in a string</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-063-character-frequency-string.html" class="prog-ol-link">
+                <span class="link-title">Frequency of Characters in String</span>
+                <span class="link-desc">Write a program to find the frequency of characters in a string</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-064-regular-expressions-demo.html" class="prog-ol-link">
+                <span class="link-title">Regular Expressions in JavaScript</span>
+                <span class="link-desc">Write a program to demonstrate regular expressions in JavaScript</span>
+            </a>
+        </li>
+        <li class="prog-ol-item" data-cat="general-js">
+            <a href="js-065-validate-email-regex.html" class="prog-ol-link">
+                <span class="link-title">Validate Email using Regex</span>
+                <span class="link-desc">Write a program to validate an email address using a regular expression</span>
+            </a>
+        </li>
+        </ol>
+    </div>
+        </div>
     </main>
 
     <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to Programs</a>
+        </div>
         <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
     </footer>
+
+    <script>
+        function filterTab(catId) {
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const blocks = document.querySelectorAll('.category-block');
+            blocks.forEach(block => {
+                if (catId === 'all') {
+                    block.style.display = 'block';
+                } else {
+                    block.style.display = (block.id === 'block-' + catId) ? 'block' : 'none';
+                }
+            });
+        }
+
+        function filterProgs() {
+            const q = document.getElementById('searchBox').value.toLowerCase();
+            const items = document.querySelectorAll('.prog-ol-item');
+            const blocks = document.querySelectorAll('.category-block');
+
+            items.forEach(item => {
+                const txt = item.innerText.toLowerCase();
+                item.style.display = txt.includes(q) ? 'list-item' : 'none';
+            });
+
+            // Hide empty category blocks when searching
+            blocks.forEach(block => {
+                if (q === '') {
+                    block.style.display = 'block';
+                } else {
+                    const visibleItems = block.querySelectorAll('.prog-ol-item[style*="display: list-item"], .prog-ol-item:not([style*="display: none"])');
+                    block.style.display = visibleItems.length > 0 ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

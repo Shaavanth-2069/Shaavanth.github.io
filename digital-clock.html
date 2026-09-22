@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#107 - Digital Clock Mini Project - Web Tech Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style></style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>#107 - Digital Clock Mini Project</h1>
+        <p>Create a digital clock</p>
+        <div class="student-meta">
+            <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
+            <span>🆔 <strong>Register Number:</strong> 250200412</span>
+            <span>🏫 <strong>Class / Section:</strong> 2nd year / 5th section</span>
+            <span>📚 <strong>Subject:</strong> Web Technology and Internet Programming</span>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to JAVASCRIPT Programs</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="exp-card">
+            <div class="exp-header">
+                <h2 class="exp-title">#107 - Digital Clock Mini Project</h2>
+                <p class="exp-desc">Create a digital clock</p>
+            </div>
+            <div class="demo-box">
+                <div style='text-align:center; padding:2rem; background:#0f172a; color:#38bdf8; border-radius:12px; font-family:monospace;'><div id='clockTime' style='font-size:2.8rem; font-weight:bold;'>00:00:00 AM</div><div id='clockDate' style='color:#94a3b8; font-size:1.1rem; margin-top:0.5rem;'>Date</div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to JAVASCRIPT Programs</a>
+        </div>
+        <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
+    </footer>
+
+    <script>function updateClock(){ const d=new Date(); document.getElementById('clockTime').innerText = d.toLocaleTimeString(); document.getElementById('clockDate').innerText = d.toDateString(); } setInterval(updateClock, 1000); updateClock();</script>
+</body>
+</html>
