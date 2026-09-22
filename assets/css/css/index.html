@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Programs - Practical Assignment</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .prog-ol-list {
+            list-style-position: inside;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .prog-ol-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .prog-ol-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .prog-ol-link {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .link-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .link-title:hover {
+            text-decoration: underline;
+        }
+        .link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>CSS Programs</h1>
+        <p>Complete List of 75 CSS Practical Programs</p>
+        <div class="student-meta">
+            <span>👤 <strong>Student Name:</strong> Gandikota Shaavanth</span>
+            <span>🆔 <strong>Register Number:</strong> 250200412</span>
+            <span>🏫 <strong>Class / Section:</strong> 2nd year / 5th section</span>
+            <span>📚 <strong>Subject:</strong> Web Technology and Internet Programming</span>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-brand">🌐 Web Tech Assignment</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="index.html" class="nav-btn active">Back to Programs</a>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search CSS programs by title or topic..." onkeyup="filterProgs()">
+        
+        <h1 style="color:var(--primary); font-size:1.8rem; margin-top:1rem;">CSS Programs (75 Programs)</h1>
+        
+        <ol class="prog-ol-list" id="progList">
+            
+        <li class="prog-ol-item">
+            <a href="inline-internal-external-css.html" class="prog-ol-link">
+                <span class="link-title">#001 - Inline, Internal, and External CSS</span>
+                <span class="link-desc">Demonstrating inline, internal, and external CSS styles</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-selectors.html" class="prog-ol-link">
+                <span class="link-title">#002 - CSS Selectors (Element, Class, ID, Universal)</span>
+                <span class="link-desc">Demonstration of CSS selectors</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="colors-backgrounds-borders.html" class="prog-ol-link">
+                <span class="link-title">#003 - CSS Colors, Backgrounds, and Borders</span>
+                <span class="link-desc">Styling text colors, background colors, and custom borders</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="font-properties-formatting.html" class="prog-ol-link">
+                <span class="link-title">#004 - Font Properties & Text Formatting</span>
+                <span class="link-desc">Font-family, font-size, line-height, text-align, decoration</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-box-model.html" class="prog-ol-link">
+                <span class="link-title">#005 - CSS Box Model</span>
+                <span class="link-desc">Demonstrating margin, border, padding, and content areas</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="width-height-sizing.html" class="prog-ol-link">
+                <span class="link-title">#006 - Width, Height & Box-Sizing Properties</span>
+                <span class="link-desc">Configuring element dimensions and box-sizing border-box</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-positioning.html" class="prog-ol-link">
+                <span class="link-title">#007 - CSS Positioning Modes</span>
+                <span class="link-desc">Demonstrating static, relative, absolute, fixed, and sticky positioning</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="float-clear.html" class="prog-ol-link">
+                <span class="link-title">#008 - Float and Clear Properties</span>
+                <span class="link-desc">Floating elements left/right and clearing float overflows</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="styled-navigation-bar.html" class="prog-ol-link">
+                <span class="link-title">#009 - Styled Navigation Bar</span>
+                <span class="link-desc">Horizontal styled navigation bar with hover effects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="pseudo-classes.html" class="prog-ol-link">
+                <span class="link-title">#010 - CSS Pseudo-Classes</span>
+                <span class="link-desc">Demonstrating :hover, :active, :focus, and :visited</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="pseudo-elements.html" class="prog-ol-link">
+                <span class="link-title">#011 - CSS Pseudo-Elements</span>
+                <span class="link-desc">Demonstrating ::before, ::after, ::first-letter, ::first-line</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="lists-and-tables.html" class="prog-ol-link">
+                <span class="link-title">#012 - CSS Lists & Tables Styling</span>
+                <span class="link-desc">Custom list item markers and table zebra striping</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="styled-registration-form.html" class="prog-ol-link">
+                <span class="link-title">#013 - Styled Registration Form using CSS</span>
+                <span class="link-desc">Custom styled form inputs, floating labels, submit button</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-flexbox.html" class="prog-ol-link">
+                <span class="link-title">#014 - CSS Flexbox Layout</span>
+                <span class="link-desc">Flex container, flex-direction, justify-content, align-items</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-grid-layout.html" class="prog-ol-link">
+                <span class="link-title">#015 - CSS Grid Layout</span>
+                <span class="link-desc">Grid template columns, grid rows, and column gap</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-media-queries.html" class="prog-ol-link">
+                <span class="link-title">#016 - Responsive Webpage using CSS Media Queries</span>
+                <span class="link-desc">Adapting webpage layout to screen sizes</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="transitions-transformations.html" class="prog-ol-link">
+                <span class="link-title">#017 - Transitions & 2D Transformations</span>
+                <span class="link-desc">Rotate, scale, translate, and transition timing</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-animations.html" class="prog-ol-link">
+                <span class="link-title">#018 - CSS Keyframe Animations</span>
+                <span class="link-desc">Pulse, bounce, spin, and shimmer keyframe animations</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-navigation-menu.html" class="prog-ol-link">
+                <span class="link-title">#019 - Responsive Navigation Menu with Toggle</span>
+                <span class="link-desc">Responsive nav menu with mobile hamburger toggle</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="personal-portfolio.html" class="prog-ol-link">
+                <span class="link-title">#020 - Personal Portfolio Webpage Layout</span>
+                <span class="link-desc">Portfolio template with hero banner, skills, projects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="student-profile-page.html" class="prog-ol-link">
+                <span class="link-title">#021 - Student Profile Card Page Layout</span>
+                <span class="link-desc">Student academic details card and profile summary</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="login-page.html" class="prog-ol-link">
+                <span class="link-title">#022 - Glassmorphism Login Page</span>
+                <span class="link-desc">Modern translucent glassmorphism login form</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="product-card-layout.html" class="prog-ol-link">
+                <span class="link-title">#023 - E-commerce Product Card Grid Layout</span>
+                <span class="link-desc">Product cards with price tags, badges, Add to Cart</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-photo-gallery.html" class="prog-ol-link">
+                <span class="link-title">#024 - Responsive Photo Gallery Layout</span>
+                <span class="link-desc">Responsive CSS Grid/Flexbox photo gallery</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="website-homepage.html" class="prog-ol-link">
+                <span class="link-title">#025 - Complete Website Homepage Template</span>
+                <span class="link-desc">Complete website homepage layout with sections</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-inheritance-specificity.html" class="prog-ol-link">
+                <span class="link-title">#026 - CSS Inheritance & Specificity Rules</span>
+                <span class="link-desc">Specificity calculations and property inheritance</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="selector-types.html" class="prog-ol-link">
+                <span class="link-title">#027 - Universal, Element, Class, ID & Attribute Selectors</span>
+                <span class="link-desc">Detailed selector types matching</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="combinator-selectors.html" class="prog-ol-link">
+                <span class="link-title">#028 - Combinator Selectors (Descendant, Child, Sibling)</span>
+                <span class="link-desc">Demonstrating space, >, +, ~ combinators</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-variables.html" class="prog-ol-link">
+                <span class="link-title">#029 - CSS Variables (Custom Properties)</span>
+                <span class="link-desc">Theme variables declaration and dynamic color switching</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="background-images-positioning.html" class="prog-ol-link">
+                <span class="link-title">#030 - Background Images & Positioning</span>
+                <span class="link-desc">Background size cover, contain, position, parallax attachment</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="linear-radial-gradients.html" class="prog-ol-link">
+                <span class="link-title">#031 - Linear & Radial CSS Gradients</span>
+                <span class="link-desc">Linear gradients, radial gradients, text gradient clip</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="box-shadow-text-shadow.html" class="prog-ol-link">
+                <span class="link-title">#032 - Box-Shadow & Text-Shadow Effects</span>
+                <span class="link-desc">Layered soft shadows and glowing text shadow effects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="border-radius-shapes.html" class="prog-ol-link">
+                <span class="link-title">#033 - Border-Radius Custom Shapes</span>
+                <span class="link-desc">Creating circle, oval, leaf, ribbon using border-radius</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="opacity-transparency.html" class="prog-ol-link">
+                <span class="link-title">#034 - Opacity & RGBA/HSLA Transparency</span>
+                <span class="link-desc">Opacity property vs RGBA color channel transparency</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="overflow-properties.html" class="prog-ol-link">
+                <span class="link-title">#035 - CSS Overflow Properties</span>
+                <span class="link-desc">Overflow visible, hidden, scroll, auto, text-overflow ellipsis</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="zindex-stacking-order.html" class="prog-ol-link">
+                <span class="link-title">#036 - Z-Index & Stacking Order</span>
+                <span class="link-desc">Stacking contexts and z-index layer hierarchy</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-display-properties.html" class="prog-ol-link">
+                <span class="link-title">#037 - CSS Display Modes (Block, Inline, Flex, Grid)</span>
+                <span class="link-desc">Display block, inline, inline-block, flex, grid, none</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="visibility-hiding-elements.html" class="prog-ol-link">
+                <span class="link-title">#038 - Visibility & Hiding Elements</span>
+                <span class="link-desc">Display: none vs visibility: hidden vs opacity: 0</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="dropdown-menu.html" class="prog-ol-link">
+                <span class="link-title">#039 - Pure CSS Dropdown Menu</span>
+                <span class="link-desc">Multi-level dropdown navigation menu in pure CSS</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="image-hover-effect.html" class="prog-ol-link">
+                <span class="link-title">#040 - Image Hover Effects</span>
+                <span class="link-desc">Zoom, grayscale overlay, flip, shine hover effects</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-tooltip.html" class="prog-ol-link">
+                <span class="link-title">#041 - Pure CSS Tooltip</span>
+                <span class="link-desc">Directional hover tooltips using pseudo-elements</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="button-hover-animation.html" class="prog-ol-link">
+                <span class="link-title">#042 - CSS Button Hover Animations</span>
+                <span class="link-desc">Ripple sweep, border trace, glowing button animation</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-filters.html" class="prog-ol-link">
+                <span class="link-title">#043 - CSS Image Filters</span>
+                <span class="link-desc">Blur, grayscale, brightness, contrast, sepia, hue-rotate</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="object-fit-position.html" class="prog-ol-link">
+                <span class="link-title">#044 - Object-Fit & Object-Position</span>
+                <span class="link-desc">Object-fit cover, contain, fill with object-position</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-image-gallery.html" class="prog-ol-link">
+                <span class="link-title">#045 - Responsive Image Gallery using CSS Grid</span>
+                <span class="link-desc">Auto-fit grid responsive photo gallery</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="card-layout-flexbox.html" class="prog-ol-link">
+                <span class="link-title">#046 - Card-Based Layout using Flexbox</span>
+                <span class="link-desc">Equal height responsive pricing cards using Flexbox</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="dashboard-layout-grid.html" class="prog-ol-link">
+                <span class="link-title">#047 - Dashboard Layout using CSS Grid</span>
+                <span class="link-desc">Admin panel layout with header, sidebar, stats, main grid</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="two-column-layout-grid.html" class="prog-ol-link">
+                <span class="link-title">#048 - Two-Column Webpage Layout using CSS Grid</span>
+                <span class="link-desc">Article content & sidebar layout using CSS Grid</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="three-column-layout-flexbox.html" class="prog-ol-link">
+                <span class="link-title">#049 - Three-Column Webpage Layout using Flexbox</span>
+                <span class="link-desc">Navigation, main content, widget sidebar using Flexbox</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="sticky-header.html" class="prog-ol-link">
+                <span class="link-title">#050 - Sticky Header Webpage</span>
+                <span class="link-desc">Sticky header navigation menu using position: sticky</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="fixed-sidebar.html" class="prog-ol-link">
+                <span class="link-title">#051 - Fixed Sidebar Webpage</span>
+                <span class="link-desc">Fixed left sidebar menu with scrollable main area</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-footer.html" class="prog-ol-link">
+                <span class="link-title">#052 - Responsive Footer Layout</span>
+                <span class="link-desc">Multi-column responsive website footer layout</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-login-signup.html" class="prog-ol-link">
+                <span class="link-title">#053 - Responsive Login & Signup Page</span>
+                <span class="link-desc">Dual tab responsive login and signup form</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-contact-form.html" class="prog-ol-link">
+                <span class="link-title">#054 - Responsive Contact Form</span>
+                <span class="link-desc">Responsive contact form layout with modern controls</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="college-website-homepage.html" class="prog-ol-link">
+                <span class="link-title">#055 - College Website Homepage</span>
+                <span class="link-desc">College portal layout with banner, courses, notices</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="restaurant-webpage.html" class="prog-ol-link">
+                <span class="link-title">#056 - Restaurant Webpage Layout</span>
+                <span class="link-desc">Restaurant menu cards & hero banner layout</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="online-shopping-webpage.html" class="prog-ol-link">
+                <span class="link-title">#057 - Online Shopping Store Catalog</span>
+                <span class="link-desc">E-commerce catalog layout with categories & grid</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="travel-website-homepage.html" class="prog-ol-link">
+                <span class="link-title">#058 - Travel Website Homepage</span>
+                <span class="link-desc">Destination cards & search section travel portal</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="news-blog-layout-grid.html" class="prog-ol-link">
+                <span class="link-title">#059 - News & Blog Layout using CSS Grid</span>
+                <span class="link-desc">Editorial news magazine layout using CSS Grid</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="multi-section-portfolio.html" class="prog-ol-link">
+                <span class="link-title">#060 - Multi-Section Portfolio Website</span>
+                <span class="link-desc">Portfolio page (Home, About, Skills, Projects, Contact)</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="grid-template-areas.html" class="prog-ol-link">
+                <span class="link-title">#061 - CSS Grid Template Areas</span>
+                <span class="link-desc">Page layout mapping grid-template-areas</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="flexbox-alignment-ordering.html" class="prog-ol-link">
+                <span class="link-title">#062 - Flexbox Alignment & Ordering Properties</span>
+                <span class="link-desc">Flex order, align-self, flex-grow, flex-basis</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-grid-media-queries.html" class="prog-ol-link">
+                <span class="link-title">#063 - Responsive Layout using Grid & Media Queries</span>
+                <span class="link-desc">Grid layout adapting seamlessly to screen sizes</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="mobile-first-responsive.html" class="prog-ol-link">
+                <span class="link-title">#064 - Mobile-First Responsive Webpage</span>
+                <span class="link-desc">Mobile-first CSS architecture with min-width queries</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-transitions.html" class="prog-ol-link">
+                <span class="link-title">#065 - CSS Transitions Demonstration</span>
+                <span class="link-desc">Transition-property, duration, timing-function, delay</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="2d-3d-transformations.html" class="prog-ol-link">
+                <span class="link-title">#066 - 2D & 3D CSS Transformations</span>
+                <span class="link-desc">3D card flip effect using perspective & rotateY</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="keyframe-animations.html" class="prog-ol-link">
+                <span class="link-title">#067 - Multi-Stage Keyframe Animations</span>
+                <span class="link-desc">Complex multi-step @keyframes animation timeline</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="loading-spinner-animation.html" class="prog-ol-link">
+                <span class="link-title">#068 - CSS Loading Spinner Animations</span>
+                <span class="link-desc">Spinning ring, pulsing dots, bouncing wave spinners</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="sliding-card-animation.html" class="prog-ol-link">
+                <span class="link-title">#069 - Sliding Image/Card Carousel Animation</span>
+                <span class="link-desc">Pure CSS sliding image card carousel</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-modal-popup.html" class="prog-ol-link">
+                <span class="link-title">#070 - CSS-Only Modal/Popup Design</span>
+                <span class="link-desc">CSS-only modal popup dialog using :target</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="dark-mode-css-variables.html" class="prog-ol-link">
+                <span class="link-title">#071 - Dark-Mode Webpage using CSS Variables</span>
+                <span class="link-desc">Dark mode theme toggle using CSS custom properties</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="responsive-typography.html" class="prog-ol-link">
+                <span class="link-title">#072 - Responsive Fluid Typography</span>
+                <span class="link-desc">Responsive typography using clamp(), rem, and vw</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="clamp-min-max-functions.html" class="prog-ol-link">
+                <span class="link-title">#073 - CSS Functions: clamp(), min(), and max()</span>
+                <span class="link-desc">Comparison functions clamp(), min(), max() demo</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="css-calc-function.html" class="prog-ol-link">
+                <span class="link-title">#074 - CSS calc() Function Demonstration</span>
+                <span class="link-desc">Dynamic dimension calculations using CSS calc()</span>
+            </a>
+        </li>
+        <li class="prog-ol-item">
+            <a href="complete-responsive-website.html" class="prog-ol-link">
+                <span class="link-title">#075 - Complete Responsive Website (HTML5, CSS3, Flexbox & Grid)</span>
+                <span class="link-desc">Master responsive layout combining HTML5, CSS3, Flexbox & Grid</span>
+            </a>
+        </li>
+        </ol>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="../index.html" class="btn-secondary">Home</a>
+            <a href="index.html" class="btn-secondary">Back to Programs</a>
+        </div>
+        <p>&copy; 2026 Practical Assignment Submission | Student: Gandikota Shaavanth (250200412)</p>
+    </footer>
+
+    <script>
+        function filterProgs() {
+            const q = document.getElementById('searchBox').value.toLowerCase();
+            const items = document.querySelectorAll('.prog-ol-item');
+            items.forEach(item => {
+                const txt = item.innerText.toLowerCase();
+                item.style.display = txt.includes(q) ? 'list-item' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
